@@ -1,21 +1,19 @@
 package com.mvvmhabit.jiemai;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.os.Bundle;
 
-import com.goldze.mvvmhabit.R;
-import com.goldze.mvvmhabit.app.AppViewModelFactory;
-import com.goldze.mvvmhabit.databinding.ActivityMainBinding;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 
-import com.goldze.mvvmhabit.BR;
-import com.goldze.mvvmhabit.jiemai.crad.CardFragment;
-import com.goldze.mvvmhabit.jiemai.home.HomeFragment;
-import com.goldze.mvvmhabit.jiemai.me.MeFragment;
-import com.goldze.mvvmhabit.ui.home.HomeViewModel;
-import com.goldze.mvvmhabit.utils.Contans;
+import com.example.swipetestdemo.R;
+import com.example.swipetestdemo.databinding.ActivityMain2Binding;
+import com.mvvmhabit.app.AppViewModelFactory;
+import com.mvvmhabit.jiemai.crad.CardFragment;
+import com.mvvmhabit.jiemai.home.HomeFragment;
+import com.mvvmhabit.jiemai.me.MeFragment;
+import com.mvvmhabit.utils.Contans;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +24,7 @@ import me.goldze.mvvmhabit.bus.Messenger;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 
-public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel> {
+public class MainActivity extends BaseActivity<ActivityMain2Binding,MainViewModel> {
     private List<Fragment> mFragments;
     private NavigationController navigationController;
     public static final String HOME = "HOME";
@@ -34,12 +32,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding,MainViewModel
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
-        return R.layout.activity_main;
+        return R.layout.activity_main2;
     }
 
     @Override
     public int initVariableId() {
-        return BR.viewModel;
+        return com.example.swipetestdemo.BR.viewModel;
     }
 
 

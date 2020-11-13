@@ -109,6 +109,43 @@
         <activity
             android:name="com.h6ah4i.android.example.advrecyclerview.about.AboutActivity"
             android:label="@string/activity_title_about" />
+
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+        <activity android:name="com.mvvmhabit.jiemai.welcome.WelcomeActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.AppStartLoadTranslucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.notch_support"
+                android:value="true" />
+        </activity>
+        <activity android:name="com.mvvmhabit.jiemai.address.AddressAddUpdateActivity" />
+        <activity android:name="com.mvvmhabit.jiemai.address.AddressManagerActivity" />
+        <activity android:name="com.mvvmhabit.jiemai.order.OrderGenerationActivity" />
+        <activity android:name="com.mvvmhabit.jiemai.good.GoodDetailActivity" />
+        <activity
+            android:name="com.mvvmhabit.jiemai.login.LoginJieMaiActivity"
+            android:label="@string/title_activity_login_jie_mai" />
+        <activity android:name="com.mvvmhabit.jiemai.MainActivity"
+            android:launchMode="singleTask">
+
+        </activity>
+        <activity android:name="com.mvvmhabit.ui.home.HomeActivity" />
+        <activity android:name="com.mvvmhabit.ui.register.RegisterActivity" />
+        <activity android:name="com.mvvmhabit.ui.login.LoginActivity" />
+        <activity android:name="com.mvvmhabit.ui.main.DemoActivity" />
+        <activity android:name="com.mvvmhabit.ui.tab_bar.activity.TabBarActivity" />
+        <activity android:name="com.mvvmhabit.ui.viewpager.activity.ViewPagerActivity" />
     </application>
 
 </manifest>
