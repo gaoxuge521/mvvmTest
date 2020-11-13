@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.example.swipetestdemo.TestMainViewModel"/>
+        <variable
+            name="viewModel"
+            type="TestMainViewModel" />
+    </data>
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".TestMainActivity">
+
+
+        <TextView
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/green"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="侧滑删除"/>
+    </LinearLayout>
+</layout>

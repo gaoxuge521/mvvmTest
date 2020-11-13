@@ -1,16 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        applicationId "com.example.swipetestdemo"
-        minSdkVersion 15
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        flavorDimensions "baidu"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -33,5 +35,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.0.0"
     implementation project(path: ':library')
     implementation 'com.google.android.material:material:1.0.0'
-    implementation ('com.h6ah4i.android.tablayouthelper:tablayouthelper:1.0.0')
+    implementation('com.h6ah4i.android.tablayouthelper:tablayouthelper:1.0.0')
+    implementation project(path: ':mvvmhabit')
 }

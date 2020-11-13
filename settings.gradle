@@ -1,0 +1,4 @@
+include ':app'
+include ':library'
+include ':mvvmhabit'
+rootProject.name='SwipeTestDemo'
