@@ -1,7 +1,8 @@
 package com.mvvmhabit.banner;
 
-import android.databinding.BindingAdapter;
-import android.support.v4.view.ViewPager;
+
+import androidx.databinding.BindingAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.youth.banner.Banner;
 import com.youth.banner.listener.OnBannerListener;
