@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.mvvmhabit.jiemai.good.GoodDetailViewModel"/>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers"/>
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter"/>
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+        <variable
+            name="imgadapter"
+            type="BindingRecyclerViewAdapter" />
+        <variable
+            name="viewModel"
+            type="GoodDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/include_good"
+            layout="@layout/layout_toolbar"
+            binding:toolbarViewModel="@{viewModel.toolbarViewModel}" />
+        <View
+            android:id="@+id/view_line"
+            android:layout_above="@+id/ll_button"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color"/>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/ll_button"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <RelativeLayout
+                binding:onClickCommand="@{viewModel.goCartClick}"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/iv_cart"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/icon_cart"/>
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/iv_cart"
+                    android:layout_width="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="@color/textColor"
+                    android:layout_height="wrap_content"
+                    android:text="购物车"/>
+                <me.majiajie.pagerbottomtabstrip.internal.RoundMessageView
+                    android:layout_marginLeft="55dp"
+                    android:id="@+id/msg_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:background="@drawable/bg_good_buy"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="￥199.00"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="单独购买"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginLeft="5dp"
+                android:paddingRight="15dp"
+                android:paddingLeft="15dp"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:background="@drawable/bg_good_buy"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    tools:text="￥199.00"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="单独购买"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_marginLeft="5dp"
+                android:gravity="end|center_vertical"
+                android:background="@color/bg_color_green"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/anim_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:text="添加商品"/>
+                <com.mvvmhabit.animshopbutton.AnimShopButtonUi
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/anim_btn"
+                    binding:onAddClickCommend="@{viewModel.onAddClickCommend}"
+                    binding:onTextClickCommend="@{viewModel.onTextClickCommend}"
+                    binding:onDeleteClickCommend="@{viewModel.onDeleteClickCommend}"
+                    binding:onCount="@{viewModel.onTextChange}"
+                    android:layout_width="wrap_content"
+                    binding:delEnableBgColor="@color/white"
+                    binding:delEnableFgColor="@color/white"
+                    android:layout_height="wrap_content"
+                    binding:addEnableBgColor="@color/white"
+                    binding:hintText=""
+                    binding:hingTextSize="14sp"
+                    binding:radius ="15dp"
+                    binding:addEnableFgColor="@color/bg_color_green"
+                    binding:hintBgColor="@color/bg_color_green"
+                    binding:hintBgRoundValue="15dp"
+                    binding:hintFgColor="#ffffff"
+                    binding:maxCount="9999"/>
+
+                <ImageView
+                    android:visibility="@{viewModel.iconAddVisible}"
+                    onClickCommand="@{viewModel.addGoodClick}"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_add_white"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <com.mvvmhabit.widget.vertical.DragLayout
+            android:layout_above="@+id/view_line"
+            android:layout_below="@+id/include_good"
+            android:id="@+id/verticak_slide"
+            binding:onDragFirst="@{viewModel.onDragFirst}"
+            binding:onDragNext="@{viewModel.onDragNext}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.mvvmhabit.widget.vertical.VerticalScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#fff"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="333dp"
+                       >
+
+                        <com.youth.banner.Banner
+                            android:id="@+id/banner"
+                            binding:images="@{viewModel.images}"
+                            binding:onBannerItemClickCommand="@{viewModel.onBannerItemClick}"
+                            binding:OnBannerListenerCommand = "@{viewModel.OnBannerListenerClick}"
+                            binding:isStop="@{viewModel.isStop}"
+                            binding:is_auto_play="true"
+                            binding:delay_time="3000"
+                            binding:indicator_width = "0dp"
+                            binding:scroll_time="2000"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
+                        <TextView
+                            android:id="@+id/tv_banner_page"
+                            android:text="@{viewModel.bannerPage}"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@mipmap/alpha_circle"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            tools:text="1/4"
+                            android:textColor="#fff"/>
+
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text="易成百味夹心海苔炒米味"
+                                android:text="@{viewModel.entity.product.name}"
+                                android:singleLine="true"
+                                android:ellipsize="end"
+                                android:textColor="@color/textColor"
+                                android:textSize="15sp"/>
+                            <TextView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="￥28.00"
+                                android:text="@{viewModel.entity.product.price}"
+                                android:textColor="#f00"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+
+
+                        <TextView
+                            binding:onClickCommand="@{viewModel.shareClick}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:gravity="center"
+                            android:background="@drawable/share_bg"
+                            android:drawableLeft="@drawable/share"
+                            android:text="分享"
+                            android:textColor="@color/textColor"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/line_color"/>
+                    <LinearLayout
+                        android:padding="10dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="已选"
+                            android:textSize="12sp"
+                            android:textColor="#999"/>
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:text="@{viewModel.entity.currentSpuAttr}"
+                            tools:text="360g"
+                            android:textColor="@color/textColor"/>
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="22dp"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            android:text="@{@string/sold_left+viewModel.entity.product.sale_num+@string/sold_end}"
+                            android:textColor="@color/textColor"/>
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@{@string/inventory+viewModel.entity.product.qty}"
+                            android:textSize="12sp"
+                            android:textColor="@color/textColor"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/line_color"/>
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="商品信息"
+                        android:textSize="14sp"
+                        android:textColor="@color/red"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        binding:itemsData ="@{viewModel.tipList}"
+                        android:id="@+id/ll_tip"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="3px"
+                        android:background="@color/line_color"/>
+
+                    <LinearLayout
+                        android:padding="10dp"
+                        android:minHeight="60dp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:drawablePadding="4dp"
+                            android:drawableLeft="@drawable/icon_select_text"
+                            android:paddingRight="4dp"
+                            android:text="由街买发货售后"
+                            android:textColor="@color/textColor"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="4dp"
+                            android:textSize="12sp"
+                            android:drawablePadding="4dp"
+                            android:drawableLeft="@drawable/icon_select_text"
+                            android:paddingRight="4dp"
+                            android:text="货到付款"
+                            android:textColor="@color/textColor"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="4dp"
+                            android:textSize="12sp"
+                            android:drawablePadding="4dp"
+                            android:drawableLeft="@drawable/icon_jg_text"
+                            android:paddingRight="4dp"
+                            android:text="不支持无理由退换货"
+                            android:textColor="@color/textColor"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/line_color"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/bg_color"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="上拉显示更多详情"
+                            android:textColor="@color/c_FE7A00"
+                            android:textSize="13sp"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/line_color"/>
+                </LinearLayout>
+
+            </com.mvvmhabit.widget.vertical.VerticalScrollView>
+
+            <com.mvvmhabit.widget.vertical.VerticalRecyclerView
+                binding:adapter="@{imgadapter}"
+                binding:layoutManager="@{LayoutManagers.linear()}"
+                binding:items="@{viewModel.secondViewModels}"
+                binding:itemBinding="@{viewModel.secondViewModelItemBinding}"
+                android:id="@+id/rv_second"
+                android:background="@color/bg_color_green"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.mvvmhabit.widget.vertical.DragLayout>
+
+
+    </RelativeLayout>
+
+
+</layout>

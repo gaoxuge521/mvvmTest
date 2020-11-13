@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.mvvmhabit.ui.networklist.NetWorkListItemViewModel"/>
+        <variable
+            name="viewModel"
+            type="NetWorkListItemViewModel" />
+    </data>
+    <LinearLayout
+        binding:onClickCommand="@{viewModel.onItemClick}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:src="@{viewModel.drawable}"
+            binding:url="@{viewModel.entity.img}"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/Green"
+            android:text="@{viewModel.entity.name}"
+            tools:text="标题"/>
+    </LinearLayout>
+</layout>

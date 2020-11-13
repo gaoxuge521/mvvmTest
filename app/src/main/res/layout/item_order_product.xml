@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.mvvmhabit.jiemai.order.OrderGenerationProductItemViewModel"/>
+        <variable
+            name="viewModel"
+            type="OrderGenerationProductItemViewModel" />
+
+    </data>
+    <RelativeLayout
+        android:padding="10dp"
+       android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:src="@{viewModel.drawable}"
+            binding:url = "@{viewModel.entity.main_image}"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <TextView
+            android:text="@{viewModel.entity.name}"
+            android:id="@+id/tv_name"
+            android:textSize="12sp"
+            android:textColor="@color/textColor"
+            android:layout_toRightOf="@+id/iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="易成百味夹心海苔炒米味"/>
+        <TextView
+            android:text="@{@string/specification+viewModel.entity.spuAttrStr}"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tv_name"
+            android:id="@+id/tv_spuattrstr"
+            android:layout_toRightOf="@+id/iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            tools:text="易成百味夹心海苔炒米味"/>
+
+        <TextView
+            android:text="@{@string/price+viewModel.entity.price+@string/price_num+viewModel.entity.num}"
+            android:textSize="12sp"
+            android:textColor="@color/textColor"
+            android:id="@+id/tv_price"
+            android:layout_alignBottom="@+id/iv_img"
+            android:layout_toRightOf="@+id/iv_img"
+            android:layout_toLeftOf="@+id/tv_price_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="易成百味夹心海苔炒米味"/>
+        <TextView
+            android:text="@{@string/price+viewModel.entity.totalPrice}"
+            android:textSize="12sp"
+            android:textColor="@color/textColor"
+            android:id="@+id/tv_price_all"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/iv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="易成百味夹"/>
+    </RelativeLayout>
+
+</layout>

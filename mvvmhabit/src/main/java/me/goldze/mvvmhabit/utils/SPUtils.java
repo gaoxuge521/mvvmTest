@@ -15,10 +15,34 @@ import androidx.annotation.NonNull;
  * SharedPreferences工具类
  */
 public final class SPUtils {
+    private static final String TOKNE = "TOKNE";
+    private static final String UUID = "UUID";
 
+    private static final String TOKENNAME = "TOKENNAME";
+    private static final String FLASHCART = "FLASHCART";
+    private static final String FLASHCARTNAME = "FLASHCARTNAME";
     private static Map<String, SPUtils> sSPMap = new HashMap<>();
     private SharedPreferences sp;
+    public String getToken(){
+        return getInstance(TOKENNAME).getString(TOKNE,"");
+    }
+    public void saveToken (String token){
+        getInstance(TOKENNAME).put(TOKNE,token);
+    }
+    public String getUUid(){
+        return getInstance(TOKENNAME).getString(UUID,"");
+    }
+    public void saveUuid (String token){
+        getInstance(TOKENNAME).put(UUID,token);
+    }
 
+    public void saveFlashCart(String json){
+        getInstance(FLASHCARTNAME).put(FLASHCART,json);
+    }
+
+    public String getFlashcart(){
+        return getInstance(FLASHCARTNAME).getString(FLASHCART);
+    }
     /**
      * 获取SP实例
      *

@@ -2,6 +2,7 @@ package me.goldze.mvvmhabit.base;
 
 import android.app.Application;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import com.trello.rxlifecycle2.LifecycleProvider;
 
@@ -18,6 +19,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
+import me.goldze.mvvmhabit.utils.SPUtils;
 
 /**
  * Created by goldze on 2017/6/15.
@@ -45,6 +47,13 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
             mCompositeDisposable = new CompositeDisposable();
         }
         mCompositeDisposable.add(disposable);
+    }
+    public boolean isLogin(){
+        return !TextUtils.isEmpty(SPUtils.getInstance().getToken());
+    }
+    public void clearToken(){
+        SPUtils.getInstance().saveToken("");
+        SPUtils.getInstance().saveUuid("");
     }
 
     /**

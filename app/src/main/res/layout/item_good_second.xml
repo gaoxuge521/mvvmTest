@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto" >
+    <data>
+        <import type="com.mvvmhabit.jiemai.good.GoodDetailSecondViewModel"/>
+        <variable
+            name="viewModel"
+            type="GoodDetailSecondViewModel" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+       android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@{viewModel.drawable}"
+            binding:url = "@{viewModel.observableField}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+</layout>

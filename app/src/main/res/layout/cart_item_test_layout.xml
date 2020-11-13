@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.swipetestdemo.app.cart.CartItemTestViewModel" />
+
+<!--        <import type="cn.ryd.jm.R" />-->
+
+        <import type="android.view.View" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:id="@+id/behind_delete_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/red"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <Button
+                android:id="@android:id/button1"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:text="删除"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:id="@+id/behind_left_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <Button
+                android:id="@android:id/button2"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:text="左边"/>
+
+        </RelativeLayout>
+        <FrameLayout
+            android:clickable="true"
+            android:background="@color/white"
+            android:id="@+id/container"
+            android:layout_margin="10dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@{viewModel.drawable}"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    binding:url = "@{viewModel.observableField.main_image}"/>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.observableField.name}"/>
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+    </FrameLayout>
+
+</layout>

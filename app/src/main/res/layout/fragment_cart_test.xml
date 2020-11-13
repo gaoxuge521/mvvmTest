@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk">
+    <data>
+        <import type="com.example.swipetestdemo.app.cart.CartTestViewModel"/>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="CartTestViewModel" />
+    </data>
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/toolbar_shared_element"
+                android:layout_marginBottom="50dp"
+                binding:itemAnimator="@{null}" />
+
+            <LinearLayout
+                android:id="@+id/toolbar_shared_element"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/top_of_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp"
+                    android:background="@color/color_FFF"
+                    android:orientation="vertical" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:background="@color/color_FFF">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="购物车"
+                        android:textColor="@color/color_000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:padding="10dp"
+                        android:text="@{viewModel.rightTitleLabel}"
+                        android:textColor="@color/color_000"
+                        android:textSize="13sp"
+                        android:visibility="@{viewModel.showEmptyViewtest ? View.INVISIBLE : View.VISIBLE}"
+                        binding:onClickCommand="@{viewModel.onRightTitleLabelClick}" />
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="购物车还是空的，快去挑选好货吧~"
+            android:textColor="@color/color_333"
+            android:textSize="14sp"
+            android:visibility="@{viewModel.showEmptyViewtest  ? View.VISIBLE : View.INVISIBLE}"
+          />
+
+    </RelativeLayout>
+</layout>

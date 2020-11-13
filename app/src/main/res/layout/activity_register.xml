@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            type="com.mvvmhabit.ui.register.RegisterViewModel"
+            name="registerviewModel"
+            />
+    </data>
+    <LinearLayout
+        android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:padding="18dp"
+        tools:context=".ui.register.RegisterActivity">
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/logo" />
+
+
+        <LinearLayout
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                binding:onFocusChangeCommand="@{registerviewModel.showBtnClearUserName}"
+                android:text="@={registerviewModel.userName}"
+                android:hint="用户名"/>
+            <ImageView
+                android:id="@+id/btn_clier_uasename"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="6dp"
+                android:src="@mipmap/clean_edit"
+                android:visibility="@{registerviewModel.clearBtnVisibility}"
+                binding:onClickCommand="@{registerviewModel.clearBtnCommand}"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:padding="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:text="@={registerviewModel.passWord}"
+                android:background="@null"
+                android:hint="密码"/>
+            <ImageView
+                android:id="@+id/iv_show_password"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="6dp"
+                android:src="@mipmap/show_psw_press"
+                binding:onClickCommand="@{registerviewModel.showPassWordClick}"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/btn_register"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            binding:onClickCommand="@{registerviewModel.registerClick}"
+            android:text="注册"/>
+
+    </LinearLayout>
+</layout>

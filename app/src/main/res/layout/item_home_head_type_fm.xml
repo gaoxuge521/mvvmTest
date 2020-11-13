@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <data>
+        <import type="com.mvvmhabit.jiemai.home.HomeHeadTyopFmViewModel"/>
+        <variable
+            name="viewModel"
+            type="HomeHeadTyopFmViewModel" />
+    </data>
+    <LinearLayout
+        binding:onClickCommand="@{viewModel.onClickCommand}"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:src="@{viewModel.drawable}"
+            binding:url = "@{viewModel.observableField.image}"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:text="@{viewModel.observableField.title}"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/color_797979"
+            android:layout_height="16dp"/>
+    </LinearLayout>
+</layout>

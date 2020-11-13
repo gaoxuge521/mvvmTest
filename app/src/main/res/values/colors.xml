@@ -15,6 +15,15 @@
        limitations under the License.
 -->
 <resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#008000</color>
+    <color name="blue">#0000FF</color>
+    <color name="orange">#FFA500</color>
+    <color name="red">#FF5745</color>
+
     <color name="bg_item_normal_state">#fff0f0f0</color>
     <color name="bg_item_dragging_state">#ffffdddd</color>
     <color name="bg_item_dragging_active_state">#ffff9999</color>
@@ -40,4 +49,49 @@
     <color name="snackbar_action_color_done">#ffccccff</color>
 
     <color name="expandable_item_indicator_color">#42000000</color>
+
+
+    <color name="default_shadow_color">#2a000000</color>
+    <color name="app_primary_color">#7EA854</color>
+    <color name="colorPrimary">#FFF</color>
+    <color name="colorPrimaryDark">#FFF</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="color_FF5745">#FF5745</color>
+    <color name="color_F9DC15">#F9DC15</color>
+    <color name="color_FFF">#FFF</color>
+    <color name="color_993300">#993300</color>
+    <color name="color_333">#333</color>
+    <color name="color_797979">#797979</color>
+    <color name="color_999">#999</color>
+    <color name="color_A1A1A1">#A1A1A1</color>
+    <color name="color_666">#666</color>
+    <color name="color_00000000">#00000000</color>
+    <color name="color_000">#000</color>
+    <color name="color_F1F1F1">#F1F1F1</color>
+    <color name="color_FCF1F1F1">#FCF1F1F1</color>
+    <color name="color_C9C9C9">#C9C9C9</color>
+    <color name="color_F4F5F7">#F4F5F7</color>
+    <color name="color_FCFAE3">#FCFAE3</color>
+    <color name="color_CD9668">#CD9668</color>
+    <color name="color_CCC">#CCC</color>
+    <color name="color_BCBCBC">#BCBCBC</color>
+    <color name="color_DE1A0A">#DE1A0A</color>
+    <color name="color_0000FF">#0000FF</color>
+
+    <color name="textColor">#202020</color>
+    <color name="textColorHint">#999999</color>
+    <color name="textColorVice">#333333</color>
+    <color name="viewLineColor">#F0F0F0</color>
+    <color name="line_color">#ddd</color>
+    <color name="color_edge_line">#ddd</color>
+    <color name="bg_color_green">#7EA854</color>
+    <color name="bg_color">#F4F5F7</color>
+    <color name="search_color_bg">#F2F2F2</color>
+    <color name="search_color">#999999</color>
+    <color name="color_price">#F22E34</color>
+    <color name="color_bg">#CCCCCC</color>
+    <color name="transparent">#00000000</color>
+    <color name="c_663333">#663333</color>
+    <color name="c_FE7A00">#FE7A00</color>
+    <color name="c_FF5745">#FF5745</color>
 </resources>

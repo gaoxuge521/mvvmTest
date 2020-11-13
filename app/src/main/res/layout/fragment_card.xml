@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.mvvmhabit.jiemai.crad.CardFmViewModel"/>
+        <variable
+            name="viewModel"
+            type="CardFmViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter"/>
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers"/>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers"/>
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/includelayout"
+            layout="@layout/layout_toolbar"
+            binding:toolbarViewModel="@{viewModel.toolbarViewModel}" />
+        <TextView
+            android:id="@+id/tv_no_cart_tip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/textColor"
+            android:textSize="14sp"
+            android:text="@string/no_cart_tip"/>
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/rv_goods"
+           android:paddingTop="5dp"
+           binding:itemAnimator="@null"
+           android:layout_weight="1"
+           binding:adapter="@{adapter}"
+           binding:layoutManager="@{LayoutManagers.linear()}"
+           binding:items="@{viewModel.list}"
+           binding:itemBinding="@{viewModel.itemBinding}"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"/>
+        <LinearLayout
+            android:id="@+id/ll_button"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                binding:onClickCommand="@{viewModel.selectClick}"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_select_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_select_pre"/>
+                <TextView
+                    android:id="@+id/tv_select_all"
+                    android:padding="5dp"
+                    android:textColor="@color/textColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_all"/>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tv_total_title"
+                android:textColor="@color/textColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/total_title"/>
+            <TextView
+                android:id="@+id/tv_price"
+                android:textColor="@color/color_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/price+viewModel.observableField.cartTotalPrice}"
+                />
+            <LinearLayout
+                binding:onClickCommand="@{viewModel.settlementClick}"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/ll_settlement"
+                android:background="@color/bg_color_green"
+                android:padding="10dp"
+                android:gravity="center"
+                android:minHeight="55dp"
+                android:minWidth="100dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_settlement"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    tools:text="去结算"
+                    android:text="@{@string/settlement(viewModel.observableField.cartTotalNum)}"/>
+                <TextView
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    android:id="@+id/tv_delect_cart"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete_cart"/>
+                <TextView
+                    android:textSize="12sp"
+                    android:id="@+id/tv_send_tip"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/send_tip"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -59,4 +59,42 @@
     <string name="dialog_message_child_item_pinned">Child item pinned! (group = %1$d, child = %2$d)</string>
 
     <string name="menu_item_about">About</string>
+
+    <string name="sku">库存：%s</string>
+    <string name="title_activity_login_jie_mai">Sign in</string>
+    <string name="prompt_email">请输入账号</string>
+    <string name="prompt_password">请输入密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="total_title">总计：</string>
+    <string name="select_all">全选</string>
+    <string name="un_select_all">取消全选</string>
+    <string name="send_tip">20起送</string>
+    <string name="specification">规格：</string>
+    <string name="settlement">去结算(%s)</string>
+    <string name="price">￥</string>
+    <string name="price_num">×</string>
+    <string name="delete_cart">删除</string>
+    <string name="edit">编辑</string>
+    <string name="loadmore_view">没有更多啦~</string>
+    <string name="complete">完成</string>
+    <string name="cart">购物车</string>
+    <string name="good">商品</string>
+    <string name="sold_left">已售：</string>
+    <string name="sold_end">件</string>
+    <string name="inventory">库存：</string>
+    <string name="no_cart_tip">购物车还是空的，快去挑选好货吧~</string>
+    <string name="confirm_order">确认订单</string>
+    <string name="liuyan">可以告诉买家你的特殊要求</string>
+    <string name="discount_total">-￥</string>
+    <string name="cart_total_num">共</string>
+    <string name="cart_total_num1">件</string>
+    <string name="onlinePayments">在线支付</string>
+    <string name="cashOndelivery">货到付款</string>
+    <string name="goods_name">商品</string>
+    <string name="string_good_detail">商品详情</string>
 </resources>

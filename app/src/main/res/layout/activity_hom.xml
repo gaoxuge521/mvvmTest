@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.mvvmhabit.ui.home.HomeViewModel"/>
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter"/>
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers"/>
+        <import type="me.goldze.mvvmhabit.binding.viewadapter.recyclerview.LineManagers"/>
+        <variable
+            name="viewModel"
+            type="HomeViewModel" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeActivity">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:background="@color/green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                binding:onClickCommand="@{viewModel.serachClick}"
+                android:background="@drawable/et_search"
+                android:textColor="@color/black"
+                android:padding="10dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="请输入关键词"/>
+            <TextView
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"
+                android:drawableTop="@drawable/saoma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="扫码找货"/>
+            <TextView
+                android:drawablePadding="5dp"
+                android:textColor="@color/white"
+                android:drawableTop="@drawable/yuyin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="语音找货"/>
+
+        </LinearLayout>
+        <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+            binding:tr_enable_loadmore="@{viewModel.refreshing}"
+            binding:onRefreshCommand="@{viewModel.onRefreshCommand}"
+            binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            binding:adapter = "@{adapter}"
+            binding:layoutManager="@{LayoutManagers.linear()}"
+            binding:lineManager="@{LineManagers.horizontal()}"
+            binding:items ="@{viewModel.list}"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+    </LinearLayout>
+</layout>

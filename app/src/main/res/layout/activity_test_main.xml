@@ -18,6 +18,7 @@
 
 
         <TextView
+            binding:onClickCommand="@{viewModel.cehuaClick}"
             android:gravity="center"
             android:textSize="20sp"
             android:textColor="@color/green"

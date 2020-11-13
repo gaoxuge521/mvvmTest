@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding = "http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <import type="com.mvvmhabit.ui.home.HomeItemViewModel"/>
+        <variable
+            name="viewModel"
+            type="HomeItemViewModel" />
+    </data>
+
+   <RelativeLayout
+        binding:onClickCommand="@{viewModel.onItemClick}"
+        binding:onLongClickCommand="@{viewModel.onLongItemClick}"
+       android:padding="10dp"
+       android:orientation="vertical"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <ImageView
+           android:id="@+id/iv_img"
+           android:src="@{viewModel.drawable}"
+           binding:url = "@{viewModel.homeEntityObservableField.image}"
+           android:layout_width="100dp"
+           android:layout_height="100dp"/>
+       <TextView
+           android:id="@+id/name"
+           android:layout_toRightOf="@+id/iv_img"
+           android:padding="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="@color/green"
+           android:text="@={viewModel.homeEntityObservableField.name}"/>
+       <TextView
+           android:layout_toRightOf="@+id/iv_img"
+           android:layout_below="@+id/name"
+           android:paddingLeft="10dp"
+           android:paddingRight="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="@color/green"
+           android:text="@{@string/sku(Integer.toString(viewModel.homeEntityObservableField.qty))}"/>
+
+       <TextView
+           android:layout_toRightOf="@+id/iv_img"
+           android:layout_alignBottom="@+id/iv_img"
+           android:padding="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColor="@color/green"
+           android:text="@={viewModel.homeEntityObservableField.price}"/>
+
+<!--       <ImageView-->
+<!--           android:id="@+id/iv_add"-->
+<!--           binding:onClickCommand="@{viewModel.onAddClick}"-->
+<!--           android:layout_alignParentRight="true"-->
+<!--           android:layout_alignBottom="@+id/iv_img"-->
+<!--           android:layout_width="wrap_content"-->
+<!--           android:layout_height="wrap_content"-->
+<!--           android:src="@drawable/add"/>-->
+
+       <!--仿饿了么-->
+       <com.goldze.mvvmhabit.animshopbutton.AnimShopButtonUi
+           android:id="@+id/btnEle"
+           binding:onAddClickCommend="@{viewModel.onAddClickCommend}"
+           binding:onDeleteClickCommend="@{viewModel.onDeleteClickCommend}"
+           binding:onCountAddSuccess="@{viewModel.onCountAddSuccess}"
+           binding:onCountDelSuccess="@{viewModel.onCountDelSuccess}"
+           android:layout_alignParentRight="true"
+           android:layout_alignBottom="@+id/iv_img"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           binding:addEnableBgColor="#3190E8"
+           binding:addEnableFgColor="#ffffff"
+           binding:hintBgColor="#3190E8"
+           binding:hintBgRoundValue="15dp"
+           binding:hintFgColor="#ffffff"
+           binding:maxCount="99"/>
+   </RelativeLayout>
+</layout>

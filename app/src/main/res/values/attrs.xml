@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TwinklingRefreshLayout">
+        <attr name="tr_wave_height" format="dimension" />
+        <attr name="tr_head_height" format="dimension" />
+        <attr name="tr_bottom_height" format="dimension" />
+        <attr name="tr_overscroll_height" format="dimension" />
+        <attr name="tr_enable_loadmore" format="boolean" />
+        <attr name="tr_pureScrollMode_on" format="boolean" />
+        <attr name="tr_show_overlay_refreshview" format="boolean" />
+        <attr name="tr_headerView" format="dimension" />
+        <attr name="tr_bottomView" format="dimension" />
+        <attr name="onRefreshCommand" format="reference" />
+        <attr name="onLoadMoreCommand" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="Banner">
+        <attr name="images" format="reference"/>
+        <attr name="isStop" format="boolean"/>
+        <attr name="onBannerItemClickCommand" format="reference"/>
+        <attr name="OnBannerListenerCommand" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="LinearLayout">
+        <attr name="itemsData" format="reference"/>
+    </declare-styleable>
+    <declare-styleable name="ImageView">
+        <attr name="imgSelect" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="RoundMessageView">
+        <attr name="msgNum" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="AnimShopButton">
+        <attr name="onAddClickCommend" format="reference"/>
+        <attr name="onDeleteClickCommend" format="reference"/>
+        <attr name="onTextClickCommend" format="reference"/>
+        <attr name="onCountAddSuccess" format="boolean"/>
+        <attr name="onCountDelSuccess" format="boolean"/>
+        <attr name="onCount" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="NoticeView">
+        <attr name="noticeData" format="reference"/>
+        <attr name="noticeOnItemClickCommand" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="riv_corner_radius" format="dimension" />
+        <attr name="riv_corner_radius_top_left" format="dimension" />
+        <attr name="riv_corner_radius_top_right" format="dimension" />
+        <attr name="riv_corner_radius_bottom_left" format="dimension" />
+        <attr name="riv_corner_radius_bottom_right" format="dimension" />
+        <attr name="riv_border_width" format="dimension" />
+        <attr name="riv_border_color" format="color" />
+        <attr name="riv_mutate_background" format="boolean" />
+        <attr name="riv_oval" format="boolean" />
+        <attr name="android:scaleType" />
+        <attr name="riv_tile_mode">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_x">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+        <attr name="riv_tile_mode_y">
+            <enum name="clamp" value="0" />
+            <enum name="repeat" value="1" />
+            <enum name="mirror" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DragLayout">
+        <attr name="onDragFirst" format="reference"/>
+        <attr name="onDragNext" format="reference"/>
+    </declare-styleable>
+</resources>

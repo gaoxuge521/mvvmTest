@@ -1,21 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-       Copyright (C) 2015 Haruki Hasegawa
+<layout>
 
-       Licensed under the Apache License, Version 2.0 (the "License");
-       you may not use this file except in compliance with the License.
-       You may obtain a copy of the License at
+    <data>
 
-           http://www.apache.org/licenses/LICENSE-2.0
+        <import type="com.mvvmhabit.ui.main.DemoViewModel" />
 
-       Unless required by applicable law or agreed to in writing, software
-       distributed under the License is distributed on an "AS IS" BASIS,
-       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-       See the License for the specific language governing permissions and
-       limitations under the License.
--->
-<RelativeLayout
-    android:id="@+id/container"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+        <variable
+            name="viewModel"
+            type="DemoViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:binding="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#202020"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="网络访问"
+            binding:onClickCommand="@{viewModel.netWorkClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RecycleView多布局"
+            binding:onClickCommand="@{viewModel.rvMultiClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="底部Tab按钮"
+            binding:onClickCommand="@{viewModel.startTabBarClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ViewPager绑定"
+            binding:onClickCommand="@{viewModel.viewPagerBindingClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ViewPager+Fragment"
+            binding:onClickCommand="@{viewModel.viewPagerGroupBindingClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="表单提交"
+            binding:onClickCommand="@{viewModel.formSbmClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="表单编辑"
+            binding:onClickCommand="@{viewModel.formModifyClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="权限申请"
+            binding:onClickCommand="@{viewModel.permissionsClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="全局异常捕获"
+            binding:onClickCommand="@{viewModel.exceptionClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="文件下载"
+            binding:onClickCommand="@{viewModel.fileDownLoadClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="注册"
+            binding:onClickCommand="@{viewModel.registerClick}" />
+        <Button
+            android:id="@+id/btn_liebiao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="列表请求"
+            binding:onClickCommand="@{viewModel.netWrokListClick}" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            binding:onClickCommand="@{viewModel.homeViewClick}" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="街买"
+            binding:onClickCommand="@{viewModel.jieMaiViewClick}" />
+    </LinearLayout>
+</layout>

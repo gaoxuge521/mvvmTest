@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding = "http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <import type="com.mvvmhabit.jiemai.home.HomeItemFmViewModel"/>
+        <variable
+            name="viewModel"
+            type="HomeItemFmViewModel" />
+    </data>
+
+    <LinearLayout
+        android:background="@color/bg_color"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.CardView
+            android:layout_marginLeft="10dp"
+            binding:cardElevation="2dp"
+            android:layout_marginRight="10dp"
+            binding:cardCornerRadius="8dp"
+            binding:cardBackgroundColor="@color/white"
+            binding:cardUseCompatPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                binding:onClickCommand="@{viewModel.onItemClick}"
+                binding:onLongClickCommand="@{viewModel.onLongItemClick}"
+                android:padding="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    binding:placeholderRes="@drawable/img_default"
+                    android:id="@+id/iv_img"
+                    android:src="@{viewModel.drawable}"
+                    binding:url = "@{viewModel.homeEntityObservableField.image}"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"/>
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_toRightOf="@+id/iv_img"
+                    android:padding="10dp"
+                    android:textSize="11sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColor"
+                    android:text="@={viewModel.homeEntityObservableField.name}"/>
+                <TextView
+                    android:layout_toRightOf="@+id/iv_img"
+                    android:layout_below="@+id/name"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="11sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textColor"
+                    android:text="@{@string/sku(Integer.toString(viewModel.homeEntityObservableField.qty))}"/>
+
+                <TextView
+                    android:layout_toRightOf="@+id/iv_img"
+                    android:layout_alignBottom="@+id/iv_img"
+                    android:layout_toLeftOf="@+id/btnEle"
+                    android:textSize="14sp"
+                    android:gravity="bottom"
+                    android:paddingLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_price"
+                    android:text="@{@string/price+viewModel.homeEntityObservableField.price}"/>
+
+                <!--仿饿了么-->
+                <com.goldze.mvvmhabit.animshopbutton.AnimShopButtonUi
+                    android:visibility="@{viewModel.animButtonChange}"
+                    android:id="@+id/btnEle"
+                    binding:onAddClickCommend="@{viewModel.onAddClickCommend}"
+                    binding:onTextClickCommend="@{viewModel.onTextClickCommend}"
+                    binding:onDeleteClickCommend="@{viewModel.onDeleteClickCommend}"
+                    binding:onCount="@{viewModel.onTextChange}"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignBottom="@+id/iv_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+
+                    binding:addEnableBgColor="@color/bg_color_green"
+                    binding:addEnableFgColor="#ffffff"
+                    binding:delEnableFgColor="@color/bg_color_green"
+                    binding:delEnableBgColor="@color/bg_color_green"
+                    binding:hintBgColor="@color/bg_color_green"
+                    binding:hintBgRoundValue="15dp"
+                    binding:hintFgColor="#ffffff"
+                    binding:maxCount="9999"/>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+
+</layout>

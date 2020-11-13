@@ -1,7 +1,6 @@
 package com.example.swipetestdemo;
 
 import android.os.Bundle;
-import com.example.swipetestdemo.databinding.ActivityTestMainBinding;
 import me.goldze.mvvmhabit.base.BaseActivity;
 
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.mvvmhabit.jiemai.me.MeFmViewModel"/>
+        <variable
+            name="viewModel"
+            type="MeFmViewModel" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:gravity="center_vertical"
+            android:background="@color/bg_color_green"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <ImageView
+                android:id="@+id/iv_avatar"
+                binding:onClickCommand="@{viewModel.loginOut}"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                binding:url = "@{viewModel.userInfoEntity.head_portrait}"
+                android:src="@{viewModel.drawable}"/>
+            <TextView
+                binding:onClickCommand="@{viewModel.loginClick}"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHighlight="@color/white"
+                android:text="@{viewModel.userInfoEntity.nickname}"
+                android:textColorHint="@color/white"
+                android:hint="请点击登录"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
