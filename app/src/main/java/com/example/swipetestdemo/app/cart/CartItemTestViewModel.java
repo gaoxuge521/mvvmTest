@@ -6,9 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.ObservableField;
 
-import cn.ryd.jm.R;
-import cn.ryd.jm.data.entity.CartInfoEntity;
-import cn.ryd.jm.widget.swiperv.SwipeViewModel;
+import com.example.swipetestdemo.R;
+import com.example.swipetestdemo.widght.swiperv.SwipeViewModel;
+import com.mvvmhabit.entity.CartInfoEntity;
+
 import me.goldze.mvvmhabit.base.ItemViewModel;
 
 public class CartItemTestViewModel extends ItemViewModel<CartTestViewModel> implements SwipeViewModel {
@@ -20,7 +21,7 @@ public class CartItemTestViewModel extends ItemViewModel<CartTestViewModel> impl
     public CartItemTestViewModel(@NonNull CartTestViewModel viewModel, CartInfoEntity.CartProducts cartProducts,int index) {
         super(viewModel);
         observableField.set(cartProducts);
-        drawable = ContextCompat.getDrawable(viewModel.getApplication(), R.mipmap.empty_icon);
+        drawable = ContextCompat.getDrawable(viewModel.getApplication(), R.drawable.img_default);
         this.index = index;
     }
 

@@ -59,6 +59,9 @@ public class CartInfoEntity {
         this.miniMoney = miniMoney;
     }
 
+    public class CartProducts{
+
+    }
     public class NoProductsManjian{
         private String itemId;
         private int active;
